@@ -583,7 +583,7 @@ class coauthors_plus {
 			$having_terms_and_authors .= $wpdb->prepare( " OR {$wpdb->posts}.post_author = %d", $coauthor->ID );
 		}
 
-		$post_types = apply_filters( 'coauthors_count_published_post_types', array( 'post' ) );
+		$post_types = apply_filters( 'coauthors_count_published_post_types', $this->supported_post_types );
 		$post_types = array_map( 'sanitize_key', $post_types );
 		$post_types = "'" . implode( "','", $post_types ) . "'";
 
